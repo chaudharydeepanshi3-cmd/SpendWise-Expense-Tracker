@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise | Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="brand">
+            <div class="brand-icon">₹</div>
+            <div>
+                <h1>SpendWise</h1>
+                <p>Personal Finance Manager</p>
+            </div>
+        </div>
+        <span class="status">● Your money, organized</span>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">YOUR FINANCIAL OVERVIEW</p>
+                <h2>Welcome to SpendWise!</h2>
+                <p>Track your income, control your expenses, and save smarter.</p>
+            </div>
+        </section>
+
+        <section class="summary">
+            <article class="summary-card balance-card">
+                <p>Total Balance</p>
+                <h2 id="totalBalance">₹0.00</h2>
+                <span>Income minus expenses</span>
+            </article>
+
+            <article class="summary-card">
+                <p>Total Income</p>
+                <h2 class="income-text" id="totalIncome">₹0.00</h2>
+                <span>Money received</span>
+            </article>
+
+            <article class="summary-card">
+                <p>Total Expenses</p>
+                <h2 class="expense-text" id="totalExpenses">₹0.00</h2>
+                <span>Money spent</span>
+            </article>
+        </section>
+
+        <section class="content-grid">
+            <article class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <h3>Add Transaction</h3>
+                        <p>Enter your income or expense details.</p>
+                    </div>
+                </div>
+
+                <form id="transactionForm">
+                    <label for="description">Description</label>
+                    <input
+                        type="text"
+                        id="description"
+                        placeholder="e.g. Grocery shopping"
+                        maxlength="80"
+                        required
+                    >
+
+                    <label for="amount">Amount (₹)</label>
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="Enter amount"
+                        min="0.01"
+                        step="0.01"
+                        required
+                    >
+
+                    <label for="type">Transaction Type</label>
+                    <select id="type" required>
+                        <option value="expense">Expense</option>
+                        <option value="income">Income</option>
+                    </select>
+
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+
+                    <button type="submit" class="add-btn">
+                        + Add Transaction
+                    </button>
+                </form>
+                <p id="formMessage" class="form-message" role="status"></p>
+            </article>
+
+            <article class="panel history-panel">
+                <div class="panel-heading history-heading">
+                    <div>
+                        <h3>Transaction History</h3>
+                        <p>Your recent financial activity.</p>
+                    </div>
+                    <span id="transactionCount" class="count">0 records</span>
+                </div>
+
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">₹</div>
+                    <h4>No transactions yet</h4>
+                    <p>Add your first transaction to get started.</p>
+                </div>
+
+                <div id="transactionList" class="transaction-list"></div>
+            </article>
+        </section>
+
+        <footer>
+            <p>SpendWise © 2026 · Take control of your money.</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
